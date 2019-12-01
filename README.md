@@ -19,6 +19,6 @@ Built with, how works
 ### FRONT END PLANNING, DEVELOPMENT PROCESS & PROBLEM SOLVING STRATEGIES
 ### USER STORIES
 ### WIREFRAMES
-<a href="https://imgur.com/1QSUcQo"><img src="https://i.imgur.com/1QSUcQo.png" title="CARDS API ERD" /></a>
+<a href="https://imgur.com/FSngKXp"><img src="https://i.imgur.com/FSngKXp.png" title="CARDS WIREFRAME 1" /></a>
 ### PLANNED FIXES AND FUTURE FEATURES
 #### ACKNOWLEDGEMENTS
