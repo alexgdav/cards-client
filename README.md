@@ -1,12 +1,19 @@
 ### README TITLE PLACEHOLDER
 About the app overall
-### LINKS
-Back end repo, deployed app, deployed front end
 ### ABOUT APP / FRONT END
 Built with, how works
-##### TECHNOLOGIES USED (BACKEND)
-### DEVELOPMENT PROCESS
-### PLANNING
+### LINKS
+Back end repo, deployed app, deployed front end
+##### TECHNOLOGIES USED (FRONT END)
+-- Atom
+-- Axios
+-- Bootstrap
+-- CSS/SASS
+-- Javascript
+-- React / React Router
+
+### FRONT END PLANNING, DEVELOPMENT PROCESS & PROBLEM SOLVING STRATEGIES
 ### USER STORIES
 ### WIREFRAMES
-### PROBLEM SOLVING STRATEGIES
+### PLANNED FIXES AND FUTURE FEATURES
+#### ACKNOWLEDGEMENTS
