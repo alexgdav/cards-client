@@ -8,6 +8,9 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import CardCreate from '../Feature/CardCreate'
+import Decks from '../Feature/Decks'
+import Deck from '../Feature/Deck'
 
 class App extends Component {
   constructor () {
@@ -42,6 +45,12 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route exact path='/decks' render={() => (
+            <Decks alert={this.alert} />
+          )} />
+          <Route path='/decks/:id' render={() => (
+            <Deck alert={this.alert} />
+          )} />
           <Route path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
@@ -53,6 +62,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/create-card' render={() => (
+            <CardCreate alert={this.alert} user={user}/>
           )} />
         </main>
       </Fragment>
