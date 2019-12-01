@@ -19,6 +19,9 @@ Built with, how works
 ### FRONT END PLANNING, DEVELOPMENT PROCESS & PROBLEM SOLVING STRATEGIES
 ### USER STORIES
 ### WIREFRAMES
+#### SIGNED IN VIEW
 <a href="https://imgur.com/FSngKXp"><img src="https://i.imgur.com/FSngKXp.png" title="CARDS WIREFRAME 1" /></a>
+#### CREATE NEW CARD VIEW
+<a href="https://imgur.com/9ZUucGL"><img src="https://i.imgur.com/9ZUucGL.png">
 ### PLANNED FIXES AND FUTURE FEATURES
 #### ACKNOWLEDGEMENTS
