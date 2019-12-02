@@ -31,7 +31,7 @@ const CardCreate = props => {
           heading: 'Card Created Successfully',
           message: messages.createCardSuccess,
           variant: 'success' })
-        history.push(`/books/${response.data.card.id}`)
+        history.push(`/cards/${response.data.card.id}`)
       })
 
       .catch(() => alert({
