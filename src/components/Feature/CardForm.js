@@ -2,14 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 // import Form from 'react-bootstrap/Form'
+// import Select from 'react-select'
 
-// can be done as const CardForm = props => {
-// const { book, handleSubmit, handleChange, cancelPath } = props
-// }
 const CardForm = ({ card, handleChange, handleSubmit, cancelPath }) => (
   <form onSubmit={handleSubmit}>
     <label htmlFor="question">Question</label>
-    <input
+    <textarea
       id="question"
       placeholder="flashcard question"
       value={card.question}
@@ -19,7 +17,7 @@ const CardForm = ({ card, handleChange, handleSubmit, cancelPath }) => (
     />
 
     <label htmlFor="answer">Answer</label>
-    <input
+    <textarea
       id="answer"
       placeholder="flashcard answer"
       value={card.answer}

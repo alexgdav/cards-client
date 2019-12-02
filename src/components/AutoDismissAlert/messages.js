@@ -13,5 +13,7 @@ export default {
   loadOneDeckSuccess: 'Here\'s your study deck!',
   loadOneDeckFailure: 'Failed to load study deck. Please try again.',
   deleteCardSuccess: 'Card deleted.',
-  deleteCardFailure: 'Failed to delete card. Try again.'
+  deleteCardFailure: 'Failed to delete card. Try again.',
+  updateCardSuccess: 'Card edited successfully!',
+  updateCardFailure: 'Failed to edit card. Please try again.'
 }

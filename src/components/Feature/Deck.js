@@ -5,6 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import messages from '../AutoDismissAlert/messages'
 import Button from 'react-bootstrap/Button'
 import apiUrl from '../../apiConfig'
+// import CardForm from './CardForm'
 
 const Deck = props => {
   const [deck, setDeck] = useState(null)
@@ -38,8 +39,9 @@ const Deck = props => {
       })
   }
 
-  const handleUpdate = () => {
-    console.log('updated!')
+  const handleUpdate = (event) => {
+    // history.push('/')
+    history.push(`/cards/${event.target.name}/edit`)
   }
 
   if (!deck) {
@@ -56,18 +58,18 @@ const Deck = props => {
         <ListGroup.Item key={card.id}>
           <p>{card.id}</p>
           <p>{card.question}</p>
-          <p>{card.answer}</p>
+          {/* <p>{card.answer}</p> */}
         </ListGroup.Item>
       )
     } else {
       return (
         <ListGroup.Item key={card.id}>
-          <p>{card.id}</p>
+          {/* <p>{card.id}</p> */}
           <p>{card.question}</p>
-          <p>{card.answer}</p>
+          {/* <p>{card.answer}</p> */}
           <p>
             {user.id === card.user_id && <Button variant={'danger'} id={card.id} onClick={handleDelete}>Delete Card</Button>}
-            {user.id === card.user_id && <Button variant={'warning'} onClick={handleUpdate}> Edit Card</Button>}
+            {user.id === card.user_id && <Button variant={'warning'} onClick={handleUpdate} name={card.id}>Edit Card</Button>}
           </p>
         </ListGroup.Item>
       )
@@ -75,9 +77,11 @@ const Deck = props => {
   })
 
   return (
-    <div>
-      <h4>{deck.subject}</h4>
-      <div>{cardsJsx}</div>
+    <div className="row">
+      <div className="col-12 text-center" align="center">
+        <h4>{deck.subject}</h4>
+        <div>{cardsJsx}</div>
+      </div>
     </div>
   )
 }

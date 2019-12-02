@@ -11,6 +11,7 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 import CardCreate from '../Feature/CardCreate'
 import Decks from '../Feature/Decks'
 import Deck from '../Feature/Deck'
+import CardUpdate from '../Feature/CardUpdate'
 
 class App extends Component {
   constructor () {
@@ -65,6 +66,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/create-card' render={() => (
             <CardCreate alert={this.alert} user={user}/>
+          )} />
+          <AuthenticatedRoute user={user} path='/cards/:id/edit' render={() => (
+            <CardUpdate alert={this.alert} user={user}/>
           )} />
         </main>
       </Fragment>

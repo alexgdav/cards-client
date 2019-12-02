@@ -1,15 +1,21 @@
-import React, { useState } from 'react'
-import { withRouter } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Redirect, withRouter } from 'react-router-dom'
 import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
 import CardForm from './CardForm'
 import messages from '../AutoDismissAlert/messages'
 
-const CardCreate = props => {
+const CardUpdate = props => {
   const [card, setCard] = useState({ question: '', answer: '', deck_id: '' })
+  const [editedCard, setEditedCard] = useState(null)
   const { alert } = props
-  // console.log('props', props)
+
+  useEffect(() => {
+    axios(`${apiUrl}/cards/${props.match.params.id}`)
+      .then(res => setCard(res.data.card))
+      .catch(console.error)
+  }, [])
 
   const handleChange = event => {
     event.persist()
@@ -20,35 +26,36 @@ const CardCreate = props => {
     event.preventDefault()
 
     axios({
-      url: `${apiUrl}/cards`,
-      method: 'POST',
+      url: `${apiUrl}/cards/${props.match.params.id}`,
+      method: 'PATCH',
       headers: {
         'Authorization': `Token token=${props.user.token}`
       },
       data: { card }
     })
       .then(response => {
-        setCard({ question: '', answer: '', deck_id: '' })
+        setEditedCard(true)
         alert({
-          heading: 'Card Created Successfully',
-          message: messages.createCardSuccess,
+          heading: 'Card Edited Successfully',
+          message: messages.updateCardSuccess,
           variant: 'success' })
-      //  history.push(something goes here)
       })
-
       .catch(() => {
-        setCard({ question: '', answer: '', deck_id: '' })
         alert({
-          heading: 'Card Create Failed',
-          message: messages.createCardFailure,
+          heading: 'Card Edit Failed',
+          message: messages.updateCardFailure,
           variant: 'danger'
         })
       })
   }
+
+  if (editedCard) {
+    return <Redirect to={'/decks'} />
+  }
+
   return (
     <CardForm
       card={card}
-      // deck={card.deck_id}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
       cancelPath={'/decks'}
@@ -56,4 +63,4 @@ const CardCreate = props => {
   )
 }
 
-export default withRouter(CardCreate)
+export default withRouter(CardUpdate)
