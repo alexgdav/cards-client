@@ -18,6 +18,16 @@ Built with, how works
 
 ### FRONT END PLANNING, DEVELOPMENT PROCESS & PROBLEM SOLVING STRATEGIES
 ### USER STORIES
+- as a logged-out user, I’d like to view all the available flashcard subjects/decks and cards
+- as a logged-out user, I’d like to be able to log in
+- as a logged-in user, I’d like to be able to change my password
+- as a logged-in user, I’d like to be able to create a new subject/deck
+- as a logged-in user, I’d like to be able to edit my deck(s)
+- as a logged-in user, I’d like to be able to delete my deck(s)
+- as a logged-in user, I’d like to be able to add a new card to a deck
+- as a logged-in user, I’d like to be able to edit my cards
+- as a logged-in user, I’d like to be able to delete my cards
+- as a logged-in user, I’d like to be able to log out
 ### WIREFRAMES
 #### SIGNED IN VIEW
 <a href="https://imgur.com/FSngKXp"><img src="https://i.imgur.com/FSngKXp.png" title="CARDS WIREFRAME 1" /></a>
