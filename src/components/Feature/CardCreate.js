@@ -8,7 +8,8 @@ import messages from '../AutoDismissAlert/messages'
 
 const CardCreate = props => {
   const [card, setCard] = useState({ question: '', answer: '', deck_id: '' })
-  const { alert, history } = props
+  const { alert } = props
+  console.log('props', props)
 
   const handleChange = event => {
     event.persist()
@@ -27,11 +28,12 @@ const CardCreate = props => {
       data: { card }
     })
       .then(response => {
+        setCard({ question: '', answer: '', deck_id: '' })
         alert({
           heading: 'Card Created Successfully',
           message: messages.createCardSuccess,
           variant: 'success' })
-        history.push(`/cards/${response.data.card.id}`)
+      //  history.push(`/deck/${response.data.card.id}`)
       })
 
       .catch(() => alert({

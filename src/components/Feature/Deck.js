@@ -8,6 +8,8 @@ import apiUrl from '../../apiConfig'
 
 const Deck = props => {
   const [deck, setDeck] = useState(null)
+  const { alert, history, user } = props
+  console.log('user', user)
 
   useEffect(() => {
     axios(`${apiUrl}/decks/${props.match.params.id}`)
@@ -16,20 +18,23 @@ const Deck = props => {
       })
   }, [])
 
-  const handleDelete = () => {
+  const handleDelete = (event) => {
+    console.log(event.target.id)
     axios({
-      url: `${apiUrl}/cards/${props.match.params.id}`,
+      url: `${apiUrl}/cards/${event.target.id}`,
       method: 'DELETE',
       headers: {
-        'Authorization': `Token token=${props.user.token}`
+        'Authorization': `Token token=${user.token}`
       }
     })
       .then(() => {
-        props.alert({ heading: 'Success', message: messages.deleteCardSuccess, variant: 'warning' })
-        history.push('/decks')
+        alert({ heading: 'Success', message: messages.deleteCardSuccess, variant: 'warning' })
+        console.log(props.match.params.id)
+        history.push('/')
+        history.push(`/decks/${props.match.params.id}`)
       })
       .catch(() => {
-        props.alert({ heading: 'Failure', message: messages.deleteCardFailure, variant: 'danger' })
+        alert({ heading: 'Failure', message: messages.deleteCardFailure, variant: 'danger' })
       })
   }
 
@@ -40,20 +45,33 @@ const Deck = props => {
   if (!deck) {
     return <p>Loading Decks</p>
   }
-  console.table(deck.cards)
-  const userId = deck.user.id
-  console.log('userId is', userId)
+  // console.table(deck.cards)
+  console.log(props)
+  // const userId = user.id
+  // console.log('userId is', userId)
+
   const cardsJsx = deck.cards.map(card => {
-    return (
-      <ListGroup.Item key={card.id}>
-        <p>{card.question}</p>
-        <p>{card.answer}</p>
-        <p>
-          {userId === card.user_id && <Button variant={'danger'} onClick={handleDelete}>Delete Card</Button>}
-          {userId === card.user_id && <Button variant={'warning'} onClick={handleUpdate}> Edit Card</Button>}
-        </p>
-      </ListGroup.Item>
-    )
+    if (!user) {
+      return (
+        <ListGroup.Item key={card.id}>
+          <p>{card.id}</p>
+          <p>{card.question}</p>
+          <p>{card.answer}</p>
+        </ListGroup.Item>
+      )
+    } else {
+      return (
+        <ListGroup.Item key={card.id}>
+          <p>{card.id}</p>
+          <p>{card.question}</p>
+          <p>{card.answer}</p>
+          <p>
+            {user.id === card.user_id && <Button variant={'danger'} id={card.id} onClick={handleDelete}>Delete Card</Button>}
+            {user.id === card.user_id && <Button variant={'warning'} onClick={handleUpdate}> Edit Card</Button>}
+          </p>
+        </ListGroup.Item>
+      )
+    }
   })
 
   return (

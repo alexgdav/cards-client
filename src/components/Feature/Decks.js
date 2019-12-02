@@ -7,6 +7,7 @@ import messages from '../AutoDismissAlert/messages'
 
 const Decks = props => {
   const [decks, setDecks] = useState([])
+  console.log('props is', props)
 
   useEffect(() => {
     axios(`${apiUrl}/decks`)
