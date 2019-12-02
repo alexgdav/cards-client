@@ -33,7 +33,7 @@ const CardCreate = props => {
           heading: 'Card Created Successfully',
           message: messages.createCardSuccess,
           variant: 'success' })
-      //  history.push(`/deck/${response.data.card.id}`)
+      //  history.push(something goes here)
       })
 
       .catch(() => alert({
