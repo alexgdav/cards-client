@@ -36,11 +36,14 @@ const CardCreate = props => {
       //  history.push(something goes here)
       })
 
-      .catch(() => alert({
-        heading: 'Card Create Failed',
-        message: messages.createCardFailure,
-        variant: 'danger'
-      }))
+      .catch(() => {
+        setCard({ question: '', answer: '', deck_id: '' })
+        alert({
+          heading: 'Card Create Failed',
+          message: messages.createCardFailure,
+          variant: 'danger'
+        })
+      })
   }
 
   return (
