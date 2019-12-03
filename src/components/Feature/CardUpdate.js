@@ -49,10 +49,11 @@ const CardUpdate = props => {
       })
   }
 
-  if (editedCard) {
-    return <Redirect to={'/decks'} />
-  }
+  console.log('props are', props)
 
+  if (editedCard) {
+    return <Redirect to={`/decks/${card.deck.id}`} />
+  }
   return (
     <CardForm
       card={card}
