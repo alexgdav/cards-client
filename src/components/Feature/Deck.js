@@ -10,7 +10,8 @@ import apiUrl from '../../apiConfig'
 const Deck = props => {
   const [deck, setDeck] = useState(null)
   const { alert, history, user } = props
-  console.log('user', user)
+  const [showQuestion, setShowQuestion] = useState(true)
+  const [showAnswer, setShowAnswer] = useState(false)
 
   useEffect(() => {
     axios(`${apiUrl}/decks/${props.match.params.id}`)
@@ -20,7 +21,6 @@ const Deck = props => {
   }, [])
 
   const handleDelete = (event) => {
-    console.log(event.target.id)
     axios({
       url: `${apiUrl}/cards/${event.target.id}`,
       method: 'DELETE',
@@ -52,6 +52,11 @@ const Deck = props => {
   // const userId = user.id
   // console.log('userId is', userId)
 
+  const flipCard = () => {
+    setShowQuestion(!showQuestion)
+    setShowAnswer(!showAnswer)
+  }
+
   const cardsJsx = deck.cards.map(card => {
     if (!user) {
       return (
@@ -64,8 +69,10 @@ const Deck = props => {
     } else {
       return (
         <ListGroup.Item key={card.id}>
+          {showQuestion && <div onClick={flipCard}>{card.question}</div>}
+          {showAnswer && <div onClick={flipCard}>{card.answer}</div>}
           {/* <p>{card.id}</p> */}
-          <p>{card.question}</p>
+          { /* <p onClick={() => setShowQuestion(!showQuestion)}></p> */ }
           {/* <p>{card.answer}</p> */}
           <p>
             {user.id === card.user_id && <Button variant={'danger'} id={card.id} onClick={handleDelete}>Delete Card</Button>}

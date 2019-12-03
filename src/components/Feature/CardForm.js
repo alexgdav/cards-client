@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 // import Form from 'react-bootstrap/Form'
 // import Select from 'react-select'
 
-const CardForm = ({ card, handleChange, handleSubmit, cancelPath }) => (
+const CardForm = ({ card, deck, handleChange, handleSubmit, cancelPath }) => (
   <form onSubmit={handleSubmit}>
     <label htmlFor="question">Question</label>
     <textarea
@@ -26,15 +26,17 @@ const CardForm = ({ card, handleChange, handleSubmit, cancelPath }) => (
       onChange={handleChange}
     />
 
-    <label htmlFor="deck_id">Deck Id</label>
-    <input
-      id="deck_id"
-      placeholder="Deck ID"
-      value={card.deck_id}
-      name="deck_id"
-      required
-      onChange={handleChange}
-    />
+    { /* <Select id="deck_id" name="deck_id" value={card.deck_id} onChange={handleChange} options={decks}/> */ }
+    <p>
+      <label htmlFor="deck_id">Deck Id</label>
+      <input
+        id="deck_id"
+        placeholder="Deck ID"
+        value={deck || ''}
+        name="deck_id"
+        required
+        onChange={handleChange}
+      /> </p>
 
     <Button variant={'info'} type="submit">Submit</Button>
     <Link to={cancelPath}>

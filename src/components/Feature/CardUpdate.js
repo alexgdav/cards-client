@@ -56,6 +56,7 @@ const CardUpdate = props => {
   return (
     <CardForm
       card={card}
+      deck={card.deck_id}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
       cancelPath={'/decks'}
