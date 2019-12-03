@@ -17,6 +17,10 @@ const Deck = props => {
     axios(`${apiUrl}/decks/${props.match.params.id}`)
       .then(res => {
         setDeck(res.data.deck)
+        alert({ heading: 'Success!', message: messages.loadOneDeckSuccess, variant: 'warning' })
+      })
+      .catch(() => {
+        alert({ heading: 'Failure', message: messages.loadOneDeckFailure, variant: 'danger' })
       })
   }, [])
 
