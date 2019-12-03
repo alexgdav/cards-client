@@ -9,6 +9,7 @@ import messages from '../AutoDismissAlert/messages'
 const CardUpdate = props => {
   const [card, setCard] = useState({ question: '', answer: '', deck_id: '' })
   const [editedCard, setEditedCard] = useState(null)
+  const [decks, setDecks] = useState([])
   const { alert } = props
 
   useEffect(() => {
@@ -16,6 +17,22 @@ const CardUpdate = props => {
       .then(res => setCard(res.data.card))
       .catch(console.error)
   }, [])
+
+  useEffect(() => {
+    axios(`${apiUrl}/decks`)
+      .then(res => {
+        setDecks(res.data.decks)
+      })
+      .catch(console.error)
+  }, [])
+
+  const deckIds = decks.map(deck => {
+    return (
+      <option key={deck.id} value={deck.id}>
+        {deck.subject}
+      </option>
+    )
+  })
 
   const handleChange = event => {
     event.persist()
@@ -49,15 +66,14 @@ const CardUpdate = props => {
       })
   }
 
-  console.log('props are', props)
-
   if (editedCard) {
     return <Redirect to={`/decks/${card.deck.id}`} />
   }
   return (
     <CardForm
       card={card}
-      deck={card.deck_id}
+      option={deckIds}
+      // deck={card.deck_id}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
       cancelPath={'/decks'}

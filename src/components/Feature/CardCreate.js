@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import axios from 'axios'
-import ListGroup from 'react-bootstrap/ListGroup'
+// import ListGroup from 'react-bootstrap/ListGroup'
 import apiUrl from '../../apiConfig'
 import CardForm from './CardForm'
 import messages from '../AutoDismissAlert/messages'
@@ -15,7 +15,7 @@ const CardCreate = props => {
   useEffect(() => {
     axios(`${apiUrl}/decks`)
       .then(res => {
-        console.log(res.data.decks)
+        // console.log(res.data.decks)
         setDecks(res.data.decks)
       })
       // .then(res => (console.log('decks are', res.data.decks)))
@@ -31,13 +31,13 @@ const CardCreate = props => {
 
   // console.log('deckIds are', deckIds)
 
-  const deckList = decks.map(deck => {
+  /* const deckList = decks.map(deck => {
     return (
       <ListGroup.Item key={deck.id}>
         Deck ID: {deck.id} Deck Subject: {deck.subject}
       </ListGroup.Item>
     )
-  })
+  }) */
 
   const handleChange = event => {
     event.persist()
@@ -83,10 +83,10 @@ const CardCreate = props => {
         handleSubmit={handleSubmit}
         cancelPath={'/decks'}
       />
-      <div>
+      { /*  <div>
         <h5>Available Deck IDs and Subjects</h5>
         {deckList}
-      </div>
+      </div> */ }
     </div>
   )
 }
