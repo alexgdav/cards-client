@@ -24,7 +24,7 @@ const CardForm = ({ card, decks, option, handleChange, handleSubmit, cancelPath 
       onChange={handleChange}
     />
 
-    { console.log('decks are', decks) }
+    { /* console.log('decks are', decks) */ }
 
     <select name="deck_id" onChange={(event) => handleChange(event)} value={card.deck_id}
     >

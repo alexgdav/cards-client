@@ -29,7 +29,7 @@ const CardCreate = props => {
     )
   })
 
-  console.log('deckIds are', deckIds)
+  // console.log('deckIds are', deckIds)
 
   const deckList = decks.map(deck => {
     return (
@@ -61,7 +61,7 @@ const CardCreate = props => {
           heading: 'Card Created Successfully',
           message: messages.createCardSuccess,
           variant: 'success' })
-        history.push('/decks')
+        history.push(`/decks/${card.deck_id}`)
       })
 
       .catch(() => {
