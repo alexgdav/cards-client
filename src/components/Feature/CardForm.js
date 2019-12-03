@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
-// import Form from 'react-bootstrap/Form'
-// import Select from 'react-select'
 
-const CardForm = ({ card, deck, handleChange, handleSubmit, cancelPath }) => (
+const CardForm = ({ card, decks, option, handleChange, handleSubmit, cancelPath }) => (
   <form onSubmit={handleSubmit}>
     <label htmlFor="question">Question</label>
     <textarea
@@ -26,17 +24,28 @@ const CardForm = ({ card, deck, handleChange, handleSubmit, cancelPath }) => (
       onChange={handleChange}
     />
 
-    { /* <Select id="deck_id" name="deck_id" value={card.deck_id} onChange={handleChange} options={decks}/> */ }
-    <p>
-      <label htmlFor="deck_id">Deck Id</label>
-      <input
-        id="deck_id"
-        placeholder="Deck ID"
-        value={deck || ''}
-        name="deck_id"
-        required
-        onChange={handleChange}
-      /> </p>
+    { console.log('decks are', decks) }
+
+    <select name="deck_id" onChange={(event) => handleChange(event)} value={card.deck_id}
+    >
+      <option>Select a Subject</option>
+      {option}
+    </select>
+
+    { /* <select name="deck_id" onChange={(event) => handleChange(event)}
+    >
+      <option>Select a Subject</option>
+      {
+        decks.map((deck, index) => {
+          return (
+            <option key={deck.id} value={deck.id} selected={card.deck_id === deck.id} >
+              {deck.subject}
+            </option>
+          )
+        })
+      }
+    </select>
+  */ }
 
     <Button variant={'info'} type="submit">Submit</Button>
     <Link to={cancelPath}>

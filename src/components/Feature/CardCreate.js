@@ -21,6 +21,16 @@ const CardCreate = props => {
       // .then(res => (console.log('decks are', res.data.decks)))
       .catch(console.error)
   }, [])
+  const deckIds = decks.map(deck => {
+    return (
+      <option key={deck.id} value={deck.id}>
+        {deck.subject}
+      </option>
+    )
+  })
+
+  console.log('deckIds are', deckIds)
+
   const deckList = decks.map(deck => {
     return (
       <ListGroup.Item key={deck.id}>
@@ -67,6 +77,7 @@ const CardCreate = props => {
     <div>
       <CardForm
         card={card}
+        option={deckIds}
         decks={decks}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
