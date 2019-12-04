@@ -37,12 +37,15 @@ const Decks = props => {
   })
 
   return (
-    <div>
-      <h1>Study Subjects</h1>
-      <Link to="/create-deck">Add A New Subject to Study</Link>
-      <ListGroup>
-        {decksJsx}
-      </ListGroup>
+    <div className="row">
+      <div className="col-8 decks" style={{ padding: '1rem' }}>
+        <span className="help">click on a subject to study it, or add a new subject</span>
+        <h1>Study Subjects</h1>
+        <Link to="/create-deck"><button className="btn btn-secondary">Add A New Subject to Study</button></Link>
+        <ListGroup className="list">
+          {decksJsx}
+        </ListGroup>
+      </div>
     </div>
   )
 }

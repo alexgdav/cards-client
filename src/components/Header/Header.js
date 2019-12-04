@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar'
 
 const authenticatedOptions = (
   <Fragment>
-    { /* <Nav.Link href="/#create-card">Create Card</Nav.Link> */ }
+    <Nav.Link href="/#create-card">Create Card</Nav.Link>
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
   </Fragment>
@@ -24,7 +24,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg="info" variant="dark" expand="md">
+  <Navbar className="nav" variant="dark" expand="md">
     <Navbar.Brand href="#">
       DECKARD
     </Navbar.Brand>

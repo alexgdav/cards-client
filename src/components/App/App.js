@@ -13,6 +13,7 @@ import Decks from '../Feature/Decks'
 import Deck from '../Feature/Deck'
 import CardUpdate from '../Feature/CardUpdate'
 import DeckCreate from '../Feature/DeckCreate'
+import About from '../Feature/About'
 
 class App extends Component {
   constructor () {
@@ -47,6 +48,9 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route exact path='/' render={() => (
+            <About alert={this.alert} user={user}/>
+          )} />
           <Route user={user} exact path='/decks' render={() => (
             <Decks alert={this.alert} user={user} />
           )} />

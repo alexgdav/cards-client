@@ -1,1 +1,57 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+
+$navblue: #587795;
+$bodylight: #e8e8e8;
+$bodymid:  #d0dee5;
+$bodydark: #868e96;
+$mainfont: 'Questrial', sans-serif;
+$maintextcolor: #343a40;
+$white: #fff;
+
+
+body {
+  background: linear-gradient($bodylight, $bodymid, $bodydark) no-repeat;
+  background-attachment: fixed;
+  color: $maintextcolor;
+  font-family: $mainfont;
+}
+
+.card {
+  background-image: url('https://i.imgur.com/GvUN5dg.png');
+  font-size: 2rem;
+  height: 18rem;
+}
+
+.decks .help {
+  background-color: $white;
+  border-radius: 6px;
+  color: $maintextcolor;
+  font-weight: bold;
+  left: 85%;
+  padding: .5rem;
+  position: absolute;
+  text-align: center justify;
+  visibility: hidden;
+  width: 10rem;
+  z-index: 1;
+}
+
+.decks:hover .help {
+  visibility: visible;
+}
+
+
+.list {
+  margin-top: 1rem;
+  // padding: 1rem;
+}
+
+.nav {
+  background: linear-gradient(to left, $navblue, $bodydark) no-repeat;
+}
+
+.study {
+  margin: 1rem;
+  padding: 1rem;
+}

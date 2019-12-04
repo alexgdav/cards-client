@@ -57,17 +57,19 @@ const Deck = props => {
   }
 
   const flipCard = (event) => {
-    const cardId = event.target.title
-    console.log(cardId)
-    const flipMe = deck.cards.find(card => {
-      console.log('event, card', event.target.id, card.id)
-      return card.id === parseInt(cardId)
-    })
-    console.log(flipMe.answer)
-    if (document.getElementById('cardDiv').innerHTML === flipMe.question) {
-      document.getElementById('cardDiv').innerHTML = flipMe.answer
-    } else {
-      document.getElementById('cardDiv').innerHTML = flipMe.question
+    if (document.getElementById('cardDiv').innerHTML !== ('')) {
+      const cardId = event.target.title
+      // console.log(cardId)
+      const flipMe = deck.cards.find(card => {
+        console.log('event, card', event.target.id, card.id)
+        return card.id === parseInt(cardId)
+      })
+      // console.log(flipMe.answer)
+      if (document.getElementById('cardDiv').innerHTML !== flipMe.question) {
+        document.getElementById('cardDiv').innerHTML = flipMe.question
+      } else {
+        document.getElementById('cardDiv').innerHTML = flipMe.answer
+      }
     }
   }
   const cardsJsx = deck.cards.map(card => {
@@ -91,14 +93,18 @@ const Deck = props => {
   })
 
   return (
-    <div className="row">
+    <div className="row study">
+      <div className="card col-6 text-center" id="card-container">
+        <div className="card-body text-center" id="cardDiv" onClick={flipCard}>
+        </div>
+      </div>
       <div className="col-6 text-center">
-        <Link to="/create-card">Create Card</Link>
         <h4>{deck.subject}</h4>
         <div>{cardsJsx}</div>
+        <Link to="/create-card"><button className="btn btn-secondary" style={{ margin: '1rem' }}>Create a New Card</button></Link>
       </div>
-      <div id="cardDiv" className="col-6 text-center" onClick={flipCard}></div>
     </div>
+  // <div id="cardDiv" onClick={flipCard}></div>
   )
 }
 
