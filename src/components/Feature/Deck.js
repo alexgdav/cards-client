@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import ListGroup from 'react-bootstrap/ListGroup'
 import messages from '../AutoDismissAlert/messages'
 import Button from 'react-bootstrap/Button'
 import apiUrl from '../../apiConfig'
-// import CardForm from './CardForm'
 
 const Deck = props => {
   const [deck, setDeck] = useState(null)
@@ -34,7 +33,6 @@ const Deck = props => {
     })
       .then(() => {
         alert({ heading: 'Success', message: messages.deleteCardSuccess, variant: 'warning' })
-        console.log(props.match.params.id)
         history.push('/')
         history.push(`/decks/${props.match.params.id}`)
       })
@@ -44,7 +42,6 @@ const Deck = props => {
   }
 
   const handleUpdate = (event) => {
-    // history.push('/')
     history.push(`/cards/${event.target.name}/edit`)
   }
 
@@ -52,9 +49,8 @@ const Deck = props => {
     return <p>Loading Decks</p>
   }
   // console.table(deck.cards)
-  console.log(props)
-  // const userId = user.id
-  // console.log('userId is', userId)
+  // console.log(props)
+  // console.log(user.id)
 
   const flipCard = () => {
     setShowQuestion(!showQuestion)
@@ -65,8 +61,9 @@ const Deck = props => {
     if (!user) {
       return (
         <ListGroup.Item key={card.id}>
-          <p>{card.id}</p>
           <p>{card.question}</p>
+          {showQuestion && <div onClick={flipCard}>{card.question}</div>}
+          {showAnswer && <div onClick={flipCard}>{card.answer}</div>}
           {/* <p>{card.answer}</p> */}
         </ListGroup.Item>
       )
@@ -90,6 +87,7 @@ const Deck = props => {
   return (
     <div className="row">
       <div className="col-12 text-center" align="center">
+        <Link to="/create-card">Create Card</Link>
         <h4>{deck.subject}</h4>
         <div>{cardsJsx}</div>
       </div>

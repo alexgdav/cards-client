@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import ListGroup from 'react-bootstrap/ListGroup'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
@@ -7,7 +7,8 @@ import messages from '../AutoDismissAlert/messages'
 
 const Decks = props => {
   const [decks, setDecks] = useState([])
-  console.log('props is', props)
+
+  // console.log('props is', props)
 
   useEffect(() => {
     axios(`${apiUrl}/decks`)
@@ -38,6 +39,7 @@ const Decks = props => {
   return (
     <div>
       <h1>Study Subjects</h1>
+      <Link to="/create-deck">Add A New Subject to Study</Link>
       <ListGroup>
         {decksJsx}
       </ListGroup>

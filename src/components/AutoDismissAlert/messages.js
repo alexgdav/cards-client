@@ -8,6 +8,8 @@ export default {
   changePasswordFailure: 'Failed to change passwords. Check your old password and try again.',
   createCardSuccess: 'Card created successfully!',
   createCardFailure: 'Failed to create card. Check path and info and try again.',
+  createDeckSuccess: 'You\'ve created an new deck.',
+  createDeckFailure: 'Failed to create new deck. Check path and info and try again',
   loadedDecksSuccess: 'Here are your study decks!',
   loadedDecksFailure: 'Failed to load decks. Check path and info and try again.',
   loadOneDeckSuccess: 'Here\'s your study deck!',

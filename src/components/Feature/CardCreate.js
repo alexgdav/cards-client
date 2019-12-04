@@ -5,11 +5,13 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import CardForm from './CardForm'
 import messages from '../AutoDismissAlert/messages'
+import NoneShallPass from '../Nope/Nope'
+// import useAlert from '../AutoDismissAlert/alertstack'
 
 const CardCreate = props => {
   const [card, setCard] = useState({ question: '', answer: '', deck_id: '' })
   const [decks, setDecks] = useState([])
-  const { alert, history } = props
+  const { user, alert, history } = props
   // console.log('props', props)
 
   useEffect(() => {
@@ -57,6 +59,11 @@ const CardCreate = props => {
     })
       .then(response => {
         setCard({ question: '', answer: '', deck_id: '' })
+        // useAlert({
+        //  heading: 'Something Nice',
+        // message: messages.useAlertMessage,
+        // variant: 'secondary'
+        // })
         alert({
           heading: 'Card Created Successfully',
           message: messages.createCardSuccess,
@@ -73,6 +80,10 @@ const CardCreate = props => {
         })
       })
   }
+  if (!user) {
+    return <NoneShallPass/>
+  }
+
   return (
     <div>
       <CardForm
