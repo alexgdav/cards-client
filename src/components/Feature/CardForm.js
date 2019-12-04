@@ -24,7 +24,7 @@ const CardForm = ({ card, option, handleChange, handleSubmit, cancelPath }) => (
       onChange={handleChange}
     />
 
-    <select name="deck_id" onChange={(event) => handleChange(event)} value={card.deck_id}
+    <select name="deck_id" onChange={handleChange} value={card.deck_id}
     >
       <option>Select a Subject</option>
       {option}

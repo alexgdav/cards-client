@@ -11,6 +11,10 @@ const Deck = props => {
   const { alert, history, user } = props
   const [showQuestion, setShowQuestion] = useState(true)
   const [showAnswer, setShowAnswer] = useState(false)
+  // show question or answer -- need an array of them for every card and want
+  // to be able to look it up based on the card
+  // const [questionUp, setQuestionUp] = useState(new Set())
+  // set an array with card 34: setQuestionUp([34])
 
   useEffect(() => {
     axios(`${apiUrl}/decks/${props.match.params.id}`)
@@ -52,7 +56,18 @@ const Deck = props => {
   // console.log(props)
   // console.log(user.id)
 
-  const flipCard = () => {
+  const flipCard = (event) => {
+    event.persist()
+    const found = deck.cards.find(card => {
+      console.log('event, card', event.target.id, card.id)
+      return card.id === parseInt(event.target.id)
+    })
+    console.log(document.getElementById('ugh'))
+    document.getElementById('ugh').innerHTML = found.answer
+    console.log('found', found)
+    // console.log('deck', deck.cards)
+    // console.log('event target is', event.target.id)
+    // event.showAnswer = 'magoo'
     setShowQuestion(!showQuestion)
     setShowAnswer(!showAnswer)
   }
@@ -62,16 +77,16 @@ const Deck = props => {
       return (
         <ListGroup.Item key={card.id}>
           { /* <p>{card.question}</p> */}
-          {showQuestion && <div onClick={flipCard}>{card.question}</div>}
-          {showAnswer && <div onClick={flipCard}>{card.answer}</div>}
+          {showQuestion && <div id={card.id} onClick={flipCard}>{card.question}</div>}
+          {showAnswer && <div id={card.id} onClick={flipCard}>{card.answer}</div>}
           {/* <p>{card.answer}</p> */}
         </ListGroup.Item>
       )
     } else {
       return (
         <ListGroup.Item key={card.id}>
-          {showQuestion && <div onClick={flipCard}>{card.question}</div>}
-          {showAnswer && <div onClick={flipCard}>{card.answer}</div>}
+          {showQuestion && <div id={card.id} onClick={flipCard}>{card.question}</div>}
+          {showAnswer && <div id={card.id} onClick={flipCard}>{card.answer}</div>}
           {/* <p>{card.id}</p> */}
           { /* <p onClick={() => setShowQuestion(!showQuestion)}></p> */ }
           {/* <p>{card.answer}</p> */}
@@ -86,11 +101,12 @@ const Deck = props => {
 
   return (
     <div className="row">
-      <div className="col-12 text-center" align="center">
+      <div className="col-6 text-center" align="center">
         <Link to="/create-card">Create Card</Link>
         <h4>{deck.subject}</h4>
         <div>{cardsJsx}</div>
       </div>
+      <div id="ugh" className="col-6">ugh</div>
     </div>
   )
 }
