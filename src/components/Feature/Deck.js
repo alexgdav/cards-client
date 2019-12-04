@@ -94,14 +94,16 @@ const Deck = props => {
 
   return (
     <div className="row study">
-      <div className="card col-6 text-center" id="card-container">
-        <div className="card-body text-center" id="cardDiv" onClick={flipCard}>
+      <div className="col-6 text-center" id="card-container">
+        <div className="card">
+          <div className="card-body text-center" id="cardDiv" onClick={flipCard}></div>
         </div>
+        <Link to="/create-card"><button className="btn btn-secondary" style={{ margin: '1rem' }}>Create a New Card</button></Link>
       </div>
-      <div className="col-6 text-center">
+      <div className="col-1"/>
+      <div className="col-5 text-center study-tip"><span className="help">click on a prompt, then click on the card to see the answer!</span>
         <h4>{deck.subject}</h4>
         <div>{cardsJsx}</div>
-        <Link to="/create-card"><button className="btn btn-secondary" style={{ margin: '1rem' }}>Create a New Card</button></Link>
       </div>
     </div>
   // <div id="cardDiv" onClick={flipCard}></div>

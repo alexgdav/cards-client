@@ -73,10 +73,9 @@ const CardUpdate = props => {
     <CardForm
       card={card}
       option={deckIds}
-      // deck={card.deck_id}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
-      cancelPath={`/decks/${card.deck.id}`}
+      cancelPath={'/decks'}
     />
   )
 }

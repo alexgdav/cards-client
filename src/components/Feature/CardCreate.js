@@ -89,7 +89,6 @@ const CardCreate = props => {
       <CardForm
         card={card}
         option={deckIds}
-        decks={decks}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         cancelPath={'/decks'}
