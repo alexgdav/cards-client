@@ -61,7 +61,7 @@ const Deck = props => {
     if (!user) {
       return (
         <ListGroup.Item key={card.id}>
-          <p>{card.question}</p>
+          { /* <p>{card.question}</p> */}
           {showQuestion && <div onClick={flipCard}>{card.question}</div>}
           {showAnswer && <div onClick={flipCard}>{card.answer}</div>}
           {/* <p>{card.answer}</p> */}
