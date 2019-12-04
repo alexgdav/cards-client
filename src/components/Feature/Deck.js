@@ -9,12 +9,6 @@ import apiUrl from '../../apiConfig'
 const Deck = props => {
   const [deck, setDeck] = useState(null)
   const { alert, history, user } = props
-  const [showQuestion, setShowQuestion] = useState(true)
-  const [showAnswer, setShowAnswer] = useState(false)
-  // show question or answer -- need an array of them for every card and want
-  // to be able to look it up based on the card
-  // const [questionUp, setQuestionUp] = useState(new Set())
-  // set an array with card 34: setQuestionUp([34])
 
   useEffect(() => {
     axios(`${apiUrl}/decks/${props.match.params.id}`)
@@ -52,44 +46,41 @@ const Deck = props => {
   if (!deck) {
     return <p>Loading Decks</p>
   }
-  // console.table(deck.cards)
-  // console.log(props)
-  // console.log(user.id)
 
-  const flipCard = (event) => {
+  const cardToDiv = (event) => {
     event.persist()
     const found = deck.cards.find(card => {
-      console.log('event, card', event.target.id, card.id)
       return card.id === parseInt(event.target.id)
     })
-    console.log(document.getElementById('ugh'))
-    document.getElementById('ugh').innerHTML = found.answer
-    console.log('found', found)
-    // console.log('deck', deck.cards)
-    // console.log('event target is', event.target.id)
-    // event.showAnswer = 'magoo'
-    setShowQuestion(!showQuestion)
-    setShowAnswer(!showAnswer)
+    document.getElementById('cardDiv').innerHTML = found.question
+    document.getElementById('cardDiv').title = event.target.id
   }
 
+  const flipCard = (event) => {
+    const cardId = event.target.title
+    console.log(cardId)
+    const flipMe = deck.cards.find(card => {
+      console.log('event, card', event.target.id, card.id)
+      return card.id === parseInt(cardId)
+    })
+    console.log(flipMe.answer)
+    if (document.getElementById('cardDiv').innerHTML === flipMe.question) {
+      document.getElementById('cardDiv').innerHTML = flipMe.answer
+    } else {
+      document.getElementById('cardDiv').innerHTML = flipMe.question
+    }
+  }
   const cardsJsx = deck.cards.map(card => {
     if (!user) {
       return (
         <ListGroup.Item key={card.id}>
-          { /* <p>{card.question}</p> */}
-          {showQuestion && <div id={card.id} onClick={flipCard}>{card.question}</div>}
-          {showAnswer && <div id={card.id} onClick={flipCard}>{card.answer}</div>}
-          {/* <p>{card.answer}</p> */}
+          {<div id={card.id} onClick={cardToDiv}>{card.question}</div>}
         </ListGroup.Item>
       )
     } else {
       return (
         <ListGroup.Item key={card.id}>
-          {showQuestion && <div id={card.id} onClick={flipCard}>{card.question}</div>}
-          {showAnswer && <div id={card.id} onClick={flipCard}>{card.answer}</div>}
-          {/* <p>{card.id}</p> */}
-          { /* <p onClick={() => setShowQuestion(!showQuestion)}></p> */ }
-          {/* <p>{card.answer}</p> */}
+          {<div id={card.id} onClick={cardToDiv}>{card.question}</div>}
           <p>
             {user.id === card.user_id && <Button variant={'danger'} id={card.id} onClick={handleDelete}>Delete Card</Button>}
             {user.id === card.user_id && <Button variant={'warning'} onClick={handleUpdate} name={card.id}>Edit Card</Button>}
@@ -101,12 +92,12 @@ const Deck = props => {
 
   return (
     <div className="row">
-      <div className="col-6 text-center" align="center">
+      <div className="col-6 text-center">
         <Link to="/create-card">Create Card</Link>
         <h4>{deck.subject}</h4>
         <div>{cardsJsx}</div>
       </div>
-      <div id="ugh" className="col-6">ugh</div>
+      <div id="cardDiv" className="col-6 text-center" onClick={flipCard}></div>
     </div>
   )
 }
