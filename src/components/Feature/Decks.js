@@ -54,7 +54,7 @@ const Decks = props => {
     if (props.user) {
       return (
         <ListGroup.Item key={deck.id}>
-          <Link className="rounded" style={{ padding: '.5rem', margin: '.5rem', display: 'block' }} to={`#decks/${deck.id}`}>{deck.subject}</Link>
+          <Link className="rounded" style={{ padding: '.5rem', margin: '.5rem', display: 'block' }} to={`decks/${deck.id}`}>{deck.subject}</Link>
           <p>
             {props.user.id === deck.user.id && <Button variant={'danger'} id={deck.id} onClick={handleDelete}>Delete Deck</Button>}
           </p>
