@@ -6,6 +6,8 @@ $bodylight: #e8e8e8;
 $bodymid:  #d0dee5;
 $bodydark: #868e96;
 $bootstrapdanger: #dc3545;
+$bootstrapwarning: #ffc107;
+$bootstrapdarkgrey: #495057;
 $mainfont: 'Questrial', sans-serif;
 $maintextcolor: #343a40;
 $navblue: #587795;
@@ -23,6 +25,8 @@ body {
 
 .about-one {
   background-image: url('https://i.imgur.com/GvUN5dg.png');
+  font-size: large;
+  font-weight: bold;
 }
 
 .about-three {
@@ -32,9 +36,15 @@ body {
 }
 
 .about-two {
-  background-image: url('https://i.imgur.com/sVdTXV2.png');
+  //background-image: url('https://i.imgur.com/FYKpf1R.png');
+  // background-image: url('https://i.imgur.com/OvaKADI.jpg');
+  // background-image: url('https://i.imgur.com/nrSm6bG.jpg');
+  background-image: url('https://i.imgur.com/RLZoqtN.png');
+  // background-image: url('https://i.imgur.com/sVdTXV2.png');
   // background-image: url('https://i.imgur.com/vr1QnMH.png');
-  color: '$bootstrapdanger';
+  color: '$bootstrapwarning';
+  font-size: large;
+  font-weight: bold;
 }
 
 .card {

@@ -32,7 +32,7 @@ class ChangePassword extends Component {
         message: messages.changePasswordSuccess,
         variant: 'success'
       }))
-      .then(() => history.push('/'))
+      .then(() => history.push('/decks'))
       .catch(error => {
         console.error(error)
         this.setState({ oldPassword: '', newPassword: '' })
