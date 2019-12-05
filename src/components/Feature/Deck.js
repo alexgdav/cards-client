@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import ListGroup from 'react-bootstrap/ListGroup'
 import messages from '../AutoDismissAlert/messages'
 import Button from 'react-bootstrap/Button'
 import apiUrl from '../../apiConfig'
+import Timer from '../Timer/Timer'
 
 const Deck = props => {
   const [deck, setDeck] = useState(null)
@@ -93,20 +94,22 @@ const Deck = props => {
   })
 
   return (
-    <div className="row study">
-      <div className="col-sm-6 text-center" id="card-container">
-        <div className="card shadow">
-          <div className="card-body text-center" id="cardDiv" onClick={flipCard}></div>
+    <Fragment>
+      <div className="row study">
+        <div className="col-sm-6 text-center" id="card-container">
+          <div className="card shadow">
+            <div className="card-body text-center" id="cardDiv" onClick={flipCard}></div>
+          </div>
+          <Link to="/create-card"><button className="btn btn-secondary" style={{ margin: '1rem' }}>Create a New Card</button></Link>
         </div>
-        <Link to="/create-card"><button className="btn btn-secondary" style={{ margin: '1rem' }}>Create a New Card</button></Link>
+        <div className="col-sm-1"/>
+        <div className="col-sm-5 text-center study-tip"><span className="help">click on a prompt, then click on the card to see the answer!</span>
+          <h4>{deck.subject}</h4>
+          <div>{cardsJsx}</div>
+        </div>
       </div>
-      <div className="col-sm-1"/>
-      <div className="col-sm-5 text-center study-tip"><span className="help">click on a prompt, then click on the card to see the answer!</span>
-        <h4>{deck.subject}</h4>
-        <div>{cardsJsx}</div>
-      </div>
-    </div>
-  // <div id="cardDiv" onClick={flipCard}></div>
+      <Timer />
+    </Fragment>
   )
 }
 
