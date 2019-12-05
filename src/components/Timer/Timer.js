@@ -57,7 +57,7 @@ const Timer = () => {
         <div className="timer row shadow rounded" style={{ margin: 'auto ' }}>
           <div className="time-input col-sm-12">
             { /* <h5 id="seconds">00:00 seconds</h5> */}
-            <h5 id="seconds-seconds" style={{ visibility: 'hidden', margin: '.5rem auto auto 1rem' }}>{seconds}</h5>
+            <h5 id="seconds-seconds" style={{ visibility: 'hidden', margin: '.5rem auto auto 1rem' }}>:{seconds}s</h5>
             <input placeholder="enter desired number of seconds and click 'set # seconds'" id="input" name="timer-input" onChange={handleChange} style={{ width: '27rem', height: '2rem', margin: '1rem' }}/>
             <button className="btn btn-secondary" onClick={setTheTime}>Set # Seconds</button>
             <button style={{ margin: '1rem' }} className={`btn btn-success btn-success-${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
