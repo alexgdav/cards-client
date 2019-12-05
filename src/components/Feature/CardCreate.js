@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import axios from 'axios'
-// import ListGroup from 'react-bootstrap/ListGroup'
 import apiUrl from '../../apiConfig'
 import CardForm from './CardForm'
 import messages from '../AutoDismissAlert/messages'
 import NoneShallPass from '../Nope/Nope'
-// import useAlert from '../AutoDismissAlert/alertstack'
 
 const CardCreate = props => {
   const [card, setCard] = useState({ question: '', answer: '', deck_id: '' })
@@ -21,7 +19,13 @@ const CardCreate = props => {
         setDecks(res.data.decks)
       })
       // .then(res => (console.log('decks are', res.data.decks)))
-      .catch(console.error)
+      .catch(() => {
+        alert({
+          heading: 'Failure',
+          message: messages.loadedDecksFailureCardFailure,
+          variant: 'danger'
+        })
+      })
   }, [])
   const deckIds = decks.map(deck => {
     return (
@@ -30,16 +34,6 @@ const CardCreate = props => {
       </option>
     )
   })
-
-  // console.log('deckIds are', deckIds)
-
-  /* const deckList = decks.map(deck => {
-    return (
-      <ListGroup.Item key={deck.id}>
-        Deck ID: {deck.id} Deck Subject: {deck.subject}
-      </ListGroup.Item>
-    )
-  }) */
 
   const handleChange = event => {
     event.persist()
@@ -58,12 +52,8 @@ const CardCreate = props => {
       data: { card }
     })
       .then(response => {
+        // reset card to clear form
         setCard({ question: '', answer: '', deck_id: '' })
-        // useAlert({
-        //  heading: 'Something Nice',
-        // message: messages.useAlertMessage,
-        // variant: 'secondary'
-        // })
         alert({
           heading: 'Card Created Successfully',
           message: messages.createCardSuccess,
@@ -72,6 +62,7 @@ const CardCreate = props => {
       })
 
       .catch(() => {
+        // reset card to clear form
         setCard({ question: '', answer: '', deck_id: '' })
         alert({
           heading: 'Card Create Failed',

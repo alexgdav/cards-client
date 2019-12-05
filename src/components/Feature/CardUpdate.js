@@ -15,7 +15,13 @@ const CardUpdate = props => {
   useEffect(() => {
     axios(`${apiUrl}/cards/${props.match.params.id}`)
       .then(res => setCard(res.data.card))
-      .catch(console.error)
+      .catch(() => {
+        alert({
+          heading: 'Card Edit Failed',
+          message: messages.updateCardFailure,
+          variant: 'danger'
+        })
+      })
   }, [])
 
   useEffect(() => {
@@ -23,7 +29,12 @@ const CardUpdate = props => {
       .then(res => {
         setDecks(res.data.decks)
       })
-      .catch(console.error)
+      .catch(() =>
+        alert({
+          heading: 'Failure',
+          message: messages.loadedDecksFailure,
+          variant: 'danger'
+        }))
   }, [])
 
   const deckIds = decks.map(deck => {
@@ -52,12 +63,16 @@ const CardUpdate = props => {
     })
       .then(response => {
         setEditedCard(true)
+        // reset card to reset form
+        setCard({ question: '', answer: '', deck_id: '' })
         alert({
           heading: 'Card Edited Successfully',
           message: messages.updateCardSuccess,
           variant: 'success' })
       })
       .catch(() => {
+        // reset card to reset form
+        setCard({ question: '', answer: '', deck_id: '' })
         alert({
           heading: 'Card Edit Failed',
           message: messages.updateCardFailure,

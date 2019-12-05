@@ -30,6 +30,8 @@ const DeckCreate = props => {
     })
     // only passing it this because no longer need to pass it an object
       .then(res => {
+        // reset deck to clear form
+        setDeck({ subject: '' })
         alert({
           heading: 'New Subject Added!',
           message: messages.createDeckSuccess,
@@ -37,11 +39,15 @@ const DeckCreate = props => {
         history.push('/decks')
       })
 
-      .catch(() => alert({
-        heading: 'Deck Create Failed',
-        message: messages.createDeckFailure,
-        variant: 'danger'
-      }))
+      .catch(() => {
+        // reset deck to clear form
+        setDeck({ subject: '' })
+        alert({
+          heading: 'Deck Create Failed',
+          message: messages.createDeckFailure,
+          variant: 'danger'
+        })
+      })
   }
   if (!user) {
     return <NoneShallPass/>

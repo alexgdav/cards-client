@@ -1,10 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap');
 
 
 $bodylight: #e8e8e8;
 $bodymid:  #d0dee5;
 $bodydark: #868e96;
+$boldfont: 'Lato', sans-serif;
 $bootstrapdanger: #dc3545;
 $bootstrapwarning: #ffc107;
 $bootstrapdarkgrey: #495057;
@@ -26,25 +28,19 @@ body {
 .about-one {
   background-image: url('https://i.imgur.com/GvUN5dg.png');
   font-size: large;
-  font-weight: bold;
+  // font-weight: bold;
 }
 
 .about-three {
   background-image: url('https://i.imgur.com/GvUN5dg.png');
   font-size: large;
-  font-weight: bold;
+  //  font-weight: bold;
 }
 
 .about-two {
-  //background-image: url('https://i.imgur.com/FYKpf1R.png');
-  // background-image: url('https://i.imgur.com/OvaKADI.jpg');
-  // background-image: url('https://i.imgur.com/nrSm6bG.jpg');
   background-image: url('https://i.imgur.com/RLZoqtN.png');
-  // background-image: url('https://i.imgur.com/sVdTXV2.png');
-  // background-image: url('https://i.imgur.com/vr1QnMH.png');
-  color: '$bootstrapwarning';
   font-size: large;
-  font-weight: bold;
+  //  font-weight: bold;
 }
 
 .card {
@@ -86,6 +82,11 @@ body {
   visibility: visible;
 }
 
+.directions {
+  font-family: $boldfont;
+  font-size: .85rem;
+  font-weight: bold;
+}
 
 .list {
   margin-top: 1rem;
@@ -102,7 +103,7 @@ body {
   padding: 1rem;
 }
 
-.study-tip .help {
+/*.study-tip .help {
   background-color: $white;
   border-radius: 6px;
   bottom: -20%;
@@ -116,7 +117,7 @@ body {
   visibility: hidden;
   width: 10rem;
   z-index: 1;
-}
+} */
 
 .study-tip:hover .help {
   visibility: visible;

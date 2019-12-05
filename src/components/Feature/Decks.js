@@ -4,11 +4,10 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import messages from '../AutoDismissAlert/messages'
+import Button from 'react-bootstrap/Button'
 
 const Decks = props => {
   const [decks, setDecks] = useState([])
-
-  // console.log('props is', props)
 
   useEffect(() => {
     axios(`${apiUrl}/decks`)
@@ -28,7 +27,40 @@ const Decks = props => {
       }))
   }, [])
 
+  const handleDelete = (event) => {
+    console.log(`${apiUrl}/decks/${event.target.id}`)
+    axios({
+      url: `${apiUrl}/decks/${event.target.id}`,
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Token token=${props.user.token}`
+      }
+    })
+      .then(() => {
+        props.alert({ heading: 'Success', message: messages.deleteDeckSuccess, variant: 'warning' })
+      })
+      .then(() => {
+        axios(`${apiUrl}/decks`)
+          .then(res => {
+            setDecks(res.data.decks)
+          })// console.table(res.data.decks)
+      })
+      .catch(() => {
+        props.alert({ heading: 'Failure', message: messages.deleteDeckFailure, variant: 'danger' })
+      })
+  }
+
   const decksJsx = decks.map(deck => {
+    if (props.user) {
+      return (
+        <ListGroup.Item key={deck.id}>
+          <Link className="rounded" style={{ padding: '.5rem', margin: '.5rem', display: 'block' }} to={`#decks/${deck.id}`}>{deck.subject}</Link>
+          <p>
+            {props.user.id === deck.user.id && <Button variant={'danger'} id={deck.id} onClick={handleDelete}>Delete Deck</Button>}
+          </p>
+        </ListGroup.Item>
+      )
+    }
     return (
       <ListGroup.Item key={deck.id} as={'a'} href={`#decks/${deck.id}`}>
         {deck.subject}

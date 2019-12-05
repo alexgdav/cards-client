@@ -104,8 +104,9 @@ const Deck = props => {
           <Link to="/create-card"><button className="btn btn-secondary" style={{ margin: '1rem' }}>Create a New Card</button></Link>
         </div>
         <div className="col-sm-1"/>
-        <div className="col-sm-5 text-center study-tip"><span className="help">click on a prompt, then click on the card to see the answer!</span>
+        <div className="col-sm-5 text-center">
           <h4>{deck.subject}</h4>
+          <p className="directions">click on a prompt in the list, then click on the card to see the answer</p>
           <div>{cardsJsx}</div>
         </div>
       </div>

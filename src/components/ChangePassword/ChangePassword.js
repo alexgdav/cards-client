@@ -33,8 +33,7 @@ class ChangePassword extends Component {
         variant: 'success'
       }))
       .then(() => history.push('/decks'))
-      .catch(error => {
-        console.error(error)
+      .catch(() => {
         this.setState({ oldPassword: '', newPassword: '' })
         alert({
           heading: 'Change Password Failed',
