@@ -1,6 +1,6 @@
 {
   "name": "cards_client",
-  "homepage": "https://github.io/alexgdav/cards-client",
+  "homepage": "https://alexgdav.github.io/cards-client/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
