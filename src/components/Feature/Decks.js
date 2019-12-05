@@ -16,11 +16,11 @@ const Decks = props => {
         setDecks(res.data.decks)
         // console.table(res.data.decks)
       })
-      .then(() => props.alert({
-        heading: 'Success',
-        message: messages.loadedDecksSuccess,
-        variant: 'success'
-      }))
+      // .then(() => props.alert({
+      //  heading: 'Success',
+      //  message: messages.loadedDecksSuccess,
+      //  variant: 'success'
+      // }))
       .catch(() => props.alert({
         heading: 'Failure',
         message: messages.loadedDecksFailure,
@@ -39,7 +39,7 @@ const Decks = props => {
   return (
     <div className="row">
       <div className="col-8 decks" style={{ padding: '1rem' }}>
-        <span className="help">click on a subject to study it, or add a new subject</span>
+        <span className="help">click on a subject to study it</span>
         <h1>Study Subjects</h1>
         <Link to="/create-deck"><button className="btn btn-secondary">Add A New Subject to Study</button></Link>
         <ListGroup className="list">

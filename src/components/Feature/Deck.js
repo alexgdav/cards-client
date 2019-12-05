@@ -14,7 +14,7 @@ const Deck = props => {
     axios(`${apiUrl}/decks/${props.match.params.id}`)
       .then(res => {
         setDeck(res.data.deck)
-        alert({ heading: 'Success!', message: messages.loadOneDeckSuccess, variant: 'warning' })
+        // alert({ heading: 'Success!', message: messages.loadOneDeckSuccess, variant: 'warning' })
       })
       .catch(() => {
         alert({ heading: 'Failure', message: messages.loadOneDeckFailure, variant: 'danger' })
@@ -61,7 +61,7 @@ const Deck = props => {
       const cardId = event.target.title
       // console.log(cardId)
       const flipMe = deck.cards.find(card => {
-        console.log('event, card', event.target.id, card.id)
+        // console.log('event, card', event.target.id, card.id)
         return card.id === parseInt(cardId)
       })
       // console.log(flipMe.answer)
@@ -84,7 +84,7 @@ const Deck = props => {
         <ListGroup.Item key={card.id}>
           {<div id={card.id} onClick={cardToDiv}>{card.question}</div>}
           <p>
-            {user.id === card.user_id && <Button variant={'danger'} id={card.id} onClick={handleDelete}>Delete Card</Button>}
+            {user.id === card.user_id && <Button variant={'danger'} id={card.id} onClick={handleDelete}>Delete Card</Button>}&nbsp;&nbsp;
             {user.id === card.user_id && <Button variant={'warning'} onClick={handleUpdate} name={card.id}>Edit Card</Button>}
           </p>
         </ListGroup.Item>
@@ -94,14 +94,14 @@ const Deck = props => {
 
   return (
     <div className="row study">
-      <div className="col-6 text-center" id="card-container">
-        <div className="card">
+      <div className="col-sm-6 text-center" id="card-container">
+        <div className="card shadow">
           <div className="card-body text-center" id="cardDiv" onClick={flipCard}></div>
         </div>
         <Link to="/create-card"><button className="btn btn-secondary" style={{ margin: '1rem' }}>Create a New Card</button></Link>
       </div>
-      <div className="col-1"/>
-      <div className="col-5 text-center study-tip"><span className="help">click on a prompt, then click on the card to see the answer!</span>
+      <div className="col-sm-1"/>
+      <div className="col-sm-5 text-center study-tip"><span className="help">click on a prompt, then click on the card to see the answer!</span>
         <h4>{deck.subject}</h4>
         <div>{cardsJsx}</div>
       </div>

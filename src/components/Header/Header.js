@@ -25,7 +25,8 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <Navbar className="nav" variant="dark" expand="md">
-    <Navbar.Brand href="#">
+    <Navbar.Brand>
+      <img src="https://i.imgur.com/JKshleO.png" width="45" alt="card stack logo" className="d-inline-block align-middle mr-2"/>
       DECKARD
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />

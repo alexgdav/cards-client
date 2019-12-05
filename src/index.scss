@@ -1,12 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
 
-$navblue: #587795;
+
 $bodylight: #e8e8e8;
 $bodymid:  #d0dee5;
 $bodydark: #868e96;
+$bootstrapdanger: #dc3545;
 $mainfont: 'Questrial', sans-serif;
 $maintextcolor: #343a40;
+$navblue: #587795;
 $white: #fff;
 
 
@@ -17,14 +19,40 @@ body {
   font-family: $mainfont;
 }
 
+.about-one {
+  background-image: url('https://i.imgur.com/GvUN5dg.png');
+}
+
+.about-three {
+  background-image: url('https://i.imgur.com/GvUN5dg.png');
+  font-size: large;
+  font-weight: bold;
+}
+
+.about-two {
+  background-image: url('https://i.imgur.com/vr1QnMH.png');
+  color: '$bootstrapdanger';
+}
+
 .card {
   background-image: url('https://i.imgur.com/GvUN5dg.png');
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   height: 18rem;
+  border: 1px $bodydark solid;
 }
 
 .card-body {
   margin-top: 1.5rem;
+}
+
+.decks a {
+  color: $navblue;
+}
+
+.decks a:hover {
+  background-color: $bodylight;
+  color: $bootstrapdanger;
+  text-decoration: none;
 }
 
 .decks .help {
