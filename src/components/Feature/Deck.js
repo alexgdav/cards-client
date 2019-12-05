@@ -95,6 +95,7 @@ const Deck = props => {
 
   return (
     <Fragment>
+      <Timer />
       <div className="row study">
         <div className="col-sm-6 text-center" id="card-container">
           <div className="card shadow">
@@ -108,7 +109,6 @@ const Deck = props => {
           <div>{cardsJsx}</div>
         </div>
       </div>
-      <Timer />
     </Fragment>
   )
 }

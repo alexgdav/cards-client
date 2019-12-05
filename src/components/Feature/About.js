@@ -15,8 +15,8 @@ const About = (props) => {
         </div>
         <div className="about-three shadow rounded col-sm" style={{ border: '1px #868e96 solid', height: '50vh', padding: '1.5rem', margin: '.5rem' }}>
           <h5>Browse our preset decks, and add new study subjects and flashcards</h5>
-          <h5>Keep your cards for your next study session, or delete them whenever you like </h5>
-          <h5>Set the timer, and see how many cards you can get through</h5>
+          <h5>Keep your cards for your next study session, or delete them </h5>
+          <h5>Set the timer, and see how many cards you can get through before time is up!</h5>
         </div>
       </div>
     </div>

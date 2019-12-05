@@ -2,6 +2,24 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 
+const authenticatedBrand = (
+  <Fragment>
+    <Navbar.Brand href='/#decks'>
+      <img src="https://i.imgur.com/JKshleO.png" width="45" alt="card stack logo" className="d-inline-block align-middle mr-2"/>
+    DECKARD
+    </Navbar.Brand>
+  </Fragment>
+)
+
+const unauthenticatedBrand = (
+  <Fragment>
+    <Navbar.Brand href='/#'>
+      <img src="https://i.imgur.com/JKshleO.png" width="45" alt="card stack logo" className="d-inline-block align-middle mr-2"/>
+  DECKARD
+    </Navbar.Brand>
+  </Fragment>
+)
+
 const authenticatedOptions = (
   <Fragment>
     <Nav.Link href="/#create-card">Create Card</Nav.Link>
@@ -25,10 +43,11 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <Navbar className="nav" variant="dark" expand="md">
-    <Navbar.Brand>
+    { user ? authenticatedBrand : unauthenticatedBrand }
+    { /* <Navbar.Brand href='/'>
       <img src="https://i.imgur.com/JKshleO.png" width="45" alt="card stack logo" className="d-inline-block align-middle mr-2"/>
       DECKARD
-    </Navbar.Brand>
+    </Navbar.Brand> */ }
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="ml-auto">
