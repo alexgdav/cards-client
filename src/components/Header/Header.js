@@ -4,7 +4,7 @@ import Navbar from 'react-bootstrap/Navbar'
 
 const authenticatedBrand = (
   <Fragment>
-    <Navbar.Brand href='/#decks'>
+    <Navbar.Brand href='#decks'>
       <img src="https://i.imgur.com/JKshleO.png" width="45" alt="card stack logo" className="d-inline-block align-middle mr-2"/>
     DECKARD
     </Navbar.Brand>
@@ -13,7 +13,7 @@ const authenticatedBrand = (
 
 const unauthenticatedBrand = (
   <Fragment>
-    <Navbar.Brand href='/#'>
+    <Navbar.Brand href='#'>
       <img src="https://i.imgur.com/JKshleO.png" width="45" alt="card stack logo" className="d-inline-block align-middle mr-2"/>
   DECKARD
     </Navbar.Brand>
@@ -22,7 +22,7 @@ const unauthenticatedBrand = (
 
 const authenticatedOptions = (
   <Fragment>
-    <Nav.Link href="/#create-card">Create Card</Nav.Link>
+    <Nav.Link href="#create-card">Create Card</Nav.Link>
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
   </Fragment>
@@ -37,7 +37,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <Nav.Link href="/#decks">View All Study Subjects</Nav.Link>
+    <Nav.Link href="#decks">View All Study Subjects</Nav.Link>
   </Fragment>
 )
 
