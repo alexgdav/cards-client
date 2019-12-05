@@ -11,7 +11,7 @@ An optional timer is available to be used with the flashcards. It may be set to 
 ##### (The sections below cover the front end only. Please check out the [Back End GitHub Repository](https://github.com/alexgdav/cards-api) for the Deckard API tech stack, stretch goals and planned fixes, and the back end development process)
 ### ABOUT THE FRONT END
 DECKARD is built with Javascript and React. Resources are queried with Axios, and displayed via
-JSX in React components. Styling is done with a mixture of Bootstrap components and CSS/SASS.
+JSX in React components. Styling is done with a mixture of Bootstrap and React Bootstrap components, and CSS/SASS.
 ### LINKS
 - [Deployed App](https://alexgdav.github.io/cards-client/)
 - [Deployed Back End At Heroku](https://glacial-eyrie-35831.herokuapp.com/)
@@ -58,5 +58,7 @@ TODO: PLANNING AND DEVELOPMENT PROCESS TEXT
 - allowing a user to view only their own decks
 - allowing a user to favorite cards or decks created by others, and to add others'
 cards to their own decks
+- better timer functionality
+- ability to upload a list of decks and flashcards en masse
 #### ACKNOWLEDGEMENTS
 Thank you to the students and instructors of SEI-05!
