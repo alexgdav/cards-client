@@ -18,7 +18,7 @@ const About = (props) => {
         <div className="about-three shadow rounded col-sm" style={{ border: '1px #868e96 solid', height: '50vh', padding: '1rem', margin: '.5rem' }}>
           <h3 style={{ padding: '.5rem' }}>Time Your Progress</h3>
           <p>+ Set the timer, and see how many cards you can get through before time is up!</p>
-          <div><Link to="/sign-up"><button className="btn btn-secondary" style={{ float: 'right', margin: '1rem' }}>Sign In</button></Link>
+          <div><Link to="/sign-in"><button className="btn btn-secondary" style={{ float: 'right', margin: '1rem' }}>Sign In</button></Link>
           </div>
         </div>
       </div>
