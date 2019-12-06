@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar'
 const authenticatedBrand = (
   <Fragment>
     <Navbar.Brand href='#decks'>
-      <img src="https://i.imgur.com/JKshleO.png" width="45" alt="card stack logo" className="d-inline-block align-middle mr-2"/>
+      <img src="https://seidavbucket.s3.amazonaws.com/project4/android-chrome-192x192.png" width="45" alt="card stack logo" className="d-inline-block align-middle mr-2"/>
     DECKARD
     </Navbar.Brand>
   </Fragment>
@@ -14,7 +14,7 @@ const authenticatedBrand = (
 const unauthenticatedBrand = (
   <Fragment>
     <Navbar.Brand href='#'>
-      <img src="https://i.imgur.com/JKshleO.png" width="45" alt="card stack logo" className="d-inline-block align-middle mr-2"/>
+      <img src="https://seidavbucket.s3.amazonaws.com/project4/android-chrome-192x192.png" width="45" alt="card stack logo" className="d-inline-block align-middle mr-2"/>
   DECKARD
     </Navbar.Brand>
   </Fragment>
