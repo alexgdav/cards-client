@@ -81,6 +81,7 @@ I ran into the same problem while working on several of my Components: not knowi
 #### CREATE NEW CARD VIEW
 <a href="https://imgur.com/9ZUucGL"><img src="https://i.imgur.com/9ZUucGL.png" title="create new card" /></a>
 ### PLANNED FIXES AND FUTURE FEATURES
+- refactor code for single Deck/Cards view to reduce/eliminate repetition 
 - add Update functionality to Decks
 - allow a user to view only their own decks
 - allow a user to favorite cards or decks created by others, and to add others'
