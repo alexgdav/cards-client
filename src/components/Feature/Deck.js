@@ -60,12 +60,9 @@ const Deck = props => {
   const flipCard = (event) => {
     if (document.getElementById('cardDiv').innerHTML !== ('')) {
       const cardId = event.target.title
-      // console.log(cardId)
       const flipMe = deck.cards.find(card => {
-        // console.log('event, card', event.target.id, card.id)
         return card.id === parseInt(cardId)
       })
-      // console.log(flipMe.answer)
       if (document.getElementById('cardDiv').innerHTML !== flipMe.question) {
         document.getElementById('cardDiv').innerHTML = flipMe.question
       } else {

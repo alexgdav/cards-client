@@ -43,7 +43,6 @@ const Timer = () => {
 
   return (
     <div className="wrap-collapsible">
-      {console.log(document.getElementById('setter'))}
       <input id="collapsible" className="toggle" type="checkbox"/>
       <label htmlFor="collapsible" className="toggle-label rounded">Open/Close Timer</label>
       <div className="collapsible-content">

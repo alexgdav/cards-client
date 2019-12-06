@@ -10,15 +10,12 @@ const CardCreate = props => {
   const [card, setCard] = useState({ question: '', answer: '', deck_id: '' })
   const [decks, setDecks] = useState([])
   const { user, alert, history } = props
-  // console.log('props', props)
 
   useEffect(() => {
     axios(`${apiUrl}/decks`)
       .then(res => {
-        // console.log(res.data.decks)
         setDecks(res.data.decks)
       })
-      // .then(res => (console.log('decks are', res.data.decks)))
       .catch(() => {
         alert({
           heading: 'Failure',
@@ -84,10 +81,6 @@ const CardCreate = props => {
         handleSubmit={handleSubmit}
         cancelPath={'/decks'}
       />
-      { /*  <div>
-        <h5>Available Deck IDs and Subjects</h5>
-        {deckList}
-      </div> */ }
     </div>
   )
 }

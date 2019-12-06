@@ -13,7 +13,6 @@ const Decks = props => {
     axios(`${apiUrl}/decks`)
       .then(res => {
         setDecks(res.data.decks)
-        // console.table(res.data.decks)
       })
       // .then(() => props.alert({
       //  heading: 'Success',
@@ -28,7 +27,6 @@ const Decks = props => {
   }, [])
 
   const handleDelete = (event) => {
-    console.log(`${apiUrl}/decks/${event.target.id}`)
     axios({
       url: `${apiUrl}/decks/${event.target.id}`,
       method: 'DELETE',
@@ -43,7 +41,7 @@ const Decks = props => {
         axios(`${apiUrl}/decks`)
           .then(res => {
             setDecks(res.data.decks)
-          })// console.table(res.data.decks)
+          })
       })
       .catch(() => {
         props.alert({ heading: 'Failure', message: messages.deleteDeckFailure, variant: 'danger' })
