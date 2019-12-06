@@ -11,7 +11,7 @@ An optional timer is available to be used with the flashcards. It may be set to 
 ##### (The sections below cover the front end only. Please check out the [Back End GitHub Repository](https://github.com/alexgdav/cards-api) for the Deckard API tech stack, back end stretch goals and planned fixes, and the back end development process)
 ### ABOUT THE FRONT END
 DECKARD is built with Javascript and React. Resources are queried with Axios, and displayed via
-JSX in React components. Styling is done with a mixture CSS/SASS and Bootstrap and React Bootstrap components.
+JSX in React components. Styling is done with CSS/SASS, and Bootstrap and React Bootstrap components.
 ### LINKS
 - [Deployed App](https://alexgdav.github.io/cards-client/)
 - [Deployed Back End At Heroku](https://glacial-eyrie-35831.herokuapp.com/)
@@ -81,7 +81,7 @@ I ran into the same problem while working on several of my Components: not knowi
 #### CREATE NEW CARD VIEW
 <a href="https://imgur.com/9ZUucGL"><img src="https://i.imgur.com/9ZUucGL.png" title="create new card" /></a>
 ### PLANNED FIXES AND FUTURE FEATURES
-- refactor code for single Deck/Cards view to reduce/eliminate repetition 
+- refactor code for single Deck/Cards view to reduce/eliminate repetition
 - add Update functionality to Decks
 - allow a user to view only their own decks
 - allow a user to favorite cards or decks created by others, and to add others'
