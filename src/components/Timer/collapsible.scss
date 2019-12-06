@@ -11,7 +11,7 @@ input[type='checkbox'] {
   display: none;
 }
 
-.lbl-toggle {
+.toggle-label {
   background-color: $white;
   color: $navblue;
   cursor: pointer;
@@ -25,11 +25,11 @@ input[type='checkbox'] {
   transition: all 0.25s ease-out;
 }
 
-.lbl-toggle:hover {
+.toggle-label:hover {
   color: $bootstrapdanger;
 }
 
-.lbl-toggle::before {
+.toggle-label::before {
   border-bottom: 5px solid transparent;
   border-left: 5px solid currentColor;
   border-top: 5px solid transparent;
@@ -47,15 +47,15 @@ input[type='checkbox'] {
   transition: max-height .25s ease-in-out;
 }
 
-.toggle:checked + .lbl-toggle + .collapsible-content {
-  max-height: 350px;
+.toggle:checked + .toggle-label + .collapsible-content {
+  max-height: 22rem;
 }
 
-.toggle:checked + .lbl-toggle::before {
+.toggle:checked + .toggle-label::before {
   transform: rotate(90deg) translateX(-3px);
 }
 
-.toggle:checked + .lbl-toggle {
+.toggle:checked + .toggle-label {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
