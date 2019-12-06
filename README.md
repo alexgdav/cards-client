@@ -8,10 +8,10 @@ those decks. Users may edit or delete the flashcards they've created, and delete
 An optional timer is available to be used with the flashcards. It may be set to the desired time and will count down while you study.
 
 ##### (For security reasons, please use a placeholder email and password to make an account on Deckard. Do not use real credentials you use anywhere else)
-##### (The sections below cover the front end only. Please check out the [Back End GitHub Repository](https://github.com/alexgdav/cards-api) for the Deckard API tech stack, stretch goals and planned fixes, and the back end development process)
+##### (The sections below cover the front end only. Please check out the [Back End GitHub Repository](https://github.com/alexgdav/cards-api) for the Deckard API tech stack, back end stretch goals and planned fixes, and the back end development process)
 ### ABOUT THE FRONT END
 DECKARD is built with Javascript and React. Resources are queried with Axios, and displayed via
-JSX in React components. Styling is done with a mixture of Bootstrap and React Bootstrap components, and CSS/SASS.
+JSX in React components. Styling is done with a mixture CSS/SASS and Bootstrap and React Bootstrap components.
 ### LINKS
 - [Deployed App](https://alexgdav.github.io/cards-client/)
 - [Deployed Back End At Heroku](https://glacial-eyrie-35831.herokuapp.com/)
@@ -23,8 +23,7 @@ JSX in React components. Styling is done with a mixture of Bootstrap and React B
 - CSS/SASS
 - Javascript
 - React
-- React Bootstrap
-- React Router
+- React Bootstrap, React Router
 ### DECKARD IN ACTION
 
 <a href="https://seidavbucket.s3.amazonaws.com/project4/signedoutlanding.png"><img src="https://seidavbucket.s3.amazonaws.com/project4/signedoutlanding.png" title="Logged out landing page" /></a>
