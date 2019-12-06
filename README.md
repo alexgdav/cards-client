@@ -37,7 +37,32 @@ JSX in React components. Styling is done with a mixture of Bootstrap and React B
 - use `npm run start` to run locally
 
 ### FRONT END PLANNING, DEVELOPMENT PROCESS & PROBLEM SOLVING STRATEGIES
-TODO: PLANNING AND DEVELOPMENT PROCESS TEXT
+
+I started out the planning with back end rather than front end, more concerned with what resources and relationships I was going to have, rather than how to display those resources. Once I had a good idea of what my Rails scaffold would look like, I began to review the React docs, with the goal of getting better handle on State, Hooks, and Components before starting to code.
+
+I ran into the same problem while working on several of my Components: knowing for certain exactly what element was rendering at what time, and what elements were accessible to me to manipulate at any given time. I added console logs to log the same parameters inside and outside JSX, to track the changes. I also decided to build a small, simple Component as another practice. I built a very basic timer, whose logic relies on using State, but whose initial parameters are set without using State. Though the timer was intended as a study, not for use in my app, I ended up implementing a slightly improved version of it as a feature in Deckard.
+
+
+#### Front End Development Steps
+
+- after deploying back end to Heroku, test CRUD actions on back end to make sure they were ready for front end implementation, using cURL and Postman
+- create basic form for editing and creating Cards, and set up Card Create
+- set up Decks and single Deck display
+- add Update and Delete buttons to Cards, without functionality, to test User Authorization status
+- add Card Delete functionality
+- add Card Update, test functionality
+- add basic Flip Card functionality in single Deck view
+- add a dropdown to the Card form (populating and using the dropdown was one of the more challenging steps, and one of the reasons I built a basic Timer as a study)
+- create separate Card container to load Cards into
+- re-work Flip Card to work with Card container
+- begin to add some Bootstrap and some CSS styling
+- re-work and integrate the Timer
+- create additional Landing/About page for logged out users, add tooltip(s)
+- finish implementing Deck CRUD actions (with the exception of UPDATE)
+- style all Components
+- test deploy front-end client
+- debug and clean-up
+
 ### USER STORIES
 - as a logged-out user, I’d like to view all the available flashcard subjects/decks and cards
 - as a logged-out user, I’d like to be able to log in
@@ -46,8 +71,8 @@ TODO: PLANNING AND DEVELOPMENT PROCESS TEXT
 - as a logged-in user, I’d like to be able to edit my deck(s)
 - as a logged-in user, I’d like to be able to delete my deck(s)
 - as a logged-in user, I’d like to be able to add a new card to a deck
-- as a logged-in user, I’d like to be able to edit my cards
-- as a logged-in user, I’d like to be able to delete my cards
+- as a logged-in user, I’d like to be able to edit my card(s)
+- as a logged-in user, I’d like to be able to delete my card(s)
 - as a logged-in user, I’d like to be able to log out
 ### WIREFRAMES
 #### SIGNED IN VIEW
@@ -55,6 +80,7 @@ TODO: PLANNING AND DEVELOPMENT PROCESS TEXT
 #### CREATE NEW CARD VIEW
 <a href="https://imgur.com/9ZUucGL"><img src="https://i.imgur.com/9ZUucGL.png" title="create new card" /></a>
 ### PLANNED FIXES AND FUTURE FEATURES
+- add Update functionality to Decks
 - allowing a user to view only their own decks
 - allowing a user to favorite cards or decks created by others, and to add others'
 cards to their own decks
