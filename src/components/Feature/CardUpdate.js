@@ -64,7 +64,7 @@ const CardUpdate = props => {
       .then(response => {
         setEditedCard(true)
         // reset card to reset form
-        setCard({ question: '', answer: '', deck_id: '' })
+        // setCard({ question: '', answer: '', deck_id: '' })
         alert({
           heading: 'Card Edited Successfully',
           message: messages.updateCardSuccess,
@@ -72,7 +72,7 @@ const CardUpdate = props => {
       })
       .catch(() => {
         // reset card to reset form
-        setCard({ question: '', answer: '', deck_id: '' })
+        // setCard({ question: '', answer: '', deck_id: '' })
         alert({
           heading: 'Card Edit Failed',
           message: messages.updateCardFailure,
