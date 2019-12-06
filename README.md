@@ -60,12 +60,14 @@ I ran into the same problem while working on several of my Components: not knowi
 - finish implementing Deck CRUD actions (with the exception of UPDATE)
 - style all Components
 - test deploy front-end client
-- debug and clean-up
+- debug and clean-up console logs
 
 ### USER STORIES
 - as a logged-out user, I’d like to view all the available flashcard subjects/decks and cards
 - as a logged-out user, I’d like to be able to log in
 - as a logged-in user, I’d like to be able to change my password
+- as a logged-in user, I'd like to be able to view all the available decks and cards
+- as a logged-in user, I'd like to be able to view my decks
 - as a logged-in user, I’d like to be able to create a new subject/deck
 - as a logged-in user, I’d like to be able to edit my deck(s)
 - as a logged-in user, I’d like to be able to delete my deck(s)
@@ -80,10 +82,10 @@ I ran into the same problem while working on several of my Components: not knowi
 <a href="https://imgur.com/9ZUucGL"><img src="https://i.imgur.com/9ZUucGL.png" title="create new card" /></a>
 ### PLANNED FIXES AND FUTURE FEATURES
 - add Update functionality to Decks
-- allowing a user to view only their own decks
-- allowing a user to favorite cards or decks created by others, and to add others'
+- allow a user to view only their own decks
+- allow a user to favorite cards or decks created by others, and to add others'
 cards to their own decks
 - better timer functionality
-- ability to upload a list of decks and flashcards en masse
+- ability to upload a list of decks and flashcards en masse (see .csv planned feature in back end repo)
 #### ACKNOWLEDGEMENTS
 Thank you to the students and instructors of SEI-05!
