@@ -15,7 +15,7 @@ JSX in React components. Styling is done with CSS/SASS, and Bootstrap and React 
 ### LINKS
 - [Deployed App](https://alexgdav.github.io/cards-client/)
 - [Deployed Back End At Heroku](https://glacial-eyrie-35831.herokuapp.com/)
-- [Back End GitHub Repository](https://github.com/alexgdav/cards-api)
+- [Back End GitHub Repository](https://github.com/alexgdav/cards_api)
 ### TECHNOLOGIES USED (FRONT END)
 - Atom
 - Axios
